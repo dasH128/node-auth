@@ -15,6 +15,10 @@ export class Server {
     }
 
     async start() {
+        this.app.use(express.json());
+        this.app.use(express.urlencoded({ extended: true })); //x-www-endoced
+
+
         this.app.use(AppRoutes.routes);
 
         this.app.listen(this.port, () => {
